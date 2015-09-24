@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Trikan Shark</title>
+        <script src="assets/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="assets/js/jstree/jstree.min.js"></script>
+        <script src="assets/js/ZeroClipboard.min.js"></script>
+        <script src="assets/js/main.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="assets/js/jstree/themes/default/style.min.css" />
+        
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <script src="assets/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="assets/css/main.css" />
+
+    </head>
+
+    <body>
+        <div id="fundo"></div>
+        <div id="all" class="container-fluid">
+            
+            <div id="boxplayer">
+                <div class="controles">
+                <button id="btprev" class="btn-sm btn btn-primary" data-toggle="tooltip" data-placement="top" title="ctrl + «"><span class="glyphicon glyphicon-step-backward controles"></span> anterior</button>
+                <button id="btnext" class="btn-sm btn btn-primary" data-toggle="tooltip" data-placement="top" title="ctrl + »">próxima <span class="glyphicon glyphicon-step-forward controles"></span></button>
+                <button id="copy-description" class="btn-sm btn btn-default controles" data-clipboard-text=""><span class="glyphicon glyphicon-share controles"></span> copy url clipboard</button>
+                </div>
+                    <div id="global-zeroclipboard-flash-bridge"></div>
+
+                <input type="hidden" name="share" id="share" val="">
+
+                <audio id="player" preload="auto" autoplay="true" tabindex="0" controls="" >
+                    <source id="source" src="">
+                </audio>
+
+                <audio id="playerFav" preload="none" autoplay="false" tabindex="2" controls="">
+                    <source id="sourceFav" src="">
+                </audio>
+
+
+
+                <input type="text" id="query_search" class="form-control controles" placeholder="Buscar">
+
+                <div id="totalSearch"></div>
+                
+                <div id="cxtitulo">
+                    <p><a href="" id="btDownload" class="btn-sm btn btn-primary controles"><span class="glyphicon glyphicon-download"></span> FAÇA O DOWNLOAD </a></p>
+                    <p>
+                         <div id="musicTitle"></div><button id="btFavoritos" class="btn-xs btn btn-success controles" onclick="javascript:adicionarFavoritos()"> + Favoritos</button>
+                    </p>
+
+
+
+                    <button id="btCarregarFavoritos" class="btn-xs btn btn-success controles" onclick="btCarregarFavoritos('init');"> Carregar Favoritos </button><br><br>
+                    <div id="play" style="text-align: left;font-size: 7pt"></div>
+                </div>
+                                
+            </div>
+
+            <div id="playlist"></div>    
+        </div>
+    </body>
+</html>

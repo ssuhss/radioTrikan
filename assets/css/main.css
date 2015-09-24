@@ -1,0 +1,74 @@
+* {
+    font-family: arial;
+}
+
+body {
+    font-size: 62.5%
+}
+
+#all {
+    margin-bottom: 100px;
+}
+
+#playlist {
+    margin-top: 30px;
+    font-size: 2em;
+    outline: none;
+}
+
+#player {
+    margin-top: 20px;
+}
+
+#query_search {
+    margin: 20px 0 0 0;
+}
+
+#musicTitle {
+    font-size: 2em;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.jstree-default .jstree-search {
+    font-style: italic;
+    color: #028;
+    font-weight: bold;
+}
+
+#boxplayer {
+    width: 305px;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#btDownload {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+#cxtitulo {
+    text-align: center;
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#totalSearch {
+    font-size: 2em;
+    visibility: hidden;
+    height: 30px;
+    padding-top: 3px;
+}
+
+#play {
+    width: 285px;
+    height: 300px;
+    border: 1px solid #ccc;
+    overflow: auto;
+}
