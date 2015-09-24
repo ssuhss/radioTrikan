@@ -16,6 +16,7 @@ function ajaxCacheFavoritos(acao,link){
 
 function adicionarFavoritos(){
 	player.bindFav();
+	btCarregarFavoritos();
 }
 
 $(function(){
@@ -30,7 +31,7 @@ $(function(){
 	ajaxCacheFavoritos('init', null);
 
 	//Carrega tela Favoritos
-	//$('#play').load("./indexFav.html");
+	$('#play').load("./indexFav.html");
 
 	$('#playerFav').hide();
 
@@ -48,18 +49,18 @@ $(function(){
 
 	//Carrega Playlist Principal
 	$playlist.jstree({ 'core' :
-		{
-	    	'data' : {
-	    		'url' : function (node) {
-			        return node.id === '#' ?
-			          'rest/index.php/musics' : false;
-			      },
-				'data' : function (node) {
-					return { 'id' : node.id };
-				}
+	{
+		'data' : {
+			'url' : function (node) {
+				return node.id === '#' ?
+					'rest/index.php/musics' : false;
 			},
-			'multiple' : false
+			'data' : function (node) {
+				return { 'id' : node.id };
+			}
 		},
+		'multiple' : false
+	},
 		"plugins" : [ "search" ],
 		"search": {
 			'show_only_matches' : true
@@ -157,19 +158,19 @@ var player = (function(){
 
 				if(pressedCtrl){
 					switch(e.which) {
-				        case 37:
-				        	module.bindPrev();
-				        break;
-				        case 39:
-				        	module.nextAutomatic();
-				        break;
-				        case 67:
-				        	console.log('entrou');
+						case 37:
+							module.bindPrev();
+							break;
+						case 39:
+							module.nextAutomatic();
+							break;
+						case 67:
+							console.log('entrou');
 
-				        break;
-				        default: return;
-				    }
-				    e.preventDefault();
+							break;
+						default: return;
+					}
+					e.preventDefault();
 				}
 			});
 		},
@@ -211,7 +212,7 @@ var player = (function(){
 		nextAutomatic: function(){
 			module.deselect_nodes();
 			if(module.existNext()){
-				module.play(module.next());	
+				module.play(module.next());
 			}else{
 				module.play(module.musics[0]);
 			}
@@ -232,7 +233,7 @@ var player = (function(){
 		},
 		prev: function(){
 			var keys = Object.keys(module.musics);
-		    var i = keys.indexOf(module.currentIndex);
+			var i = keys.indexOf(module.currentIndex);
 			return i !== -1 && keys[i--] && module.musics[keys[i--]];
 		},
 		setCurrent: function(element){
@@ -252,7 +253,7 @@ var player = (function(){
 		},
 		next: function(){
 			var keys = Object.keys(module.musics);
-		    var i = keys.indexOf(module.currentIndex);
+			var i = keys.indexOf(module.currentIndex);
 			return i !== -1 && keys[i++] && module.musics[keys[i++]];
 		},
 		setMusics: function(musics){
@@ -265,9 +266,9 @@ var player = (function(){
 			var path = element['a_attr'].href;
 			$('#btDownload').attr('href', 'rest/download/' + path);
 			module.$source.attr("src", module.baseUrl + path);
-        	module.$player.load();
-        	module.setCurrent(element);
-        	module.setTitle();
+			module.$player.load();
+			module.setCurrent(element);
+			module.setTitle();
 		},
 		setTitle: function(){
 			module.$musicTitle.html(module.current.text);
@@ -291,7 +292,7 @@ var player = (function(){
 			}else{
 				$totalSearch.css('visibility', 'hidden');
 			}
-			
+
 		}
 	}
 
