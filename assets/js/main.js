@@ -31,7 +31,7 @@ $(function(){
 	ajaxCacheFavoritos('init', null);
 
 	//Carrega tela Favoritos
-	$('#play').load("./indexFav.html");
+	setTimeout(function(){$('#play').load("./indexFav.html"); } , 4000);
 
 	$('#playerFav').hide();
 
