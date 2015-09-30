@@ -19,6 +19,11 @@ function adicionarFavoritos(){
 	btCarregarFavoritos();
 }
 
+function clearFavoritos(){
+	ajaxCacheFavoritos('clear',null);
+	btCarregarFavoritos();
+}
+
 $(function(){
 
 	var $playlist = $("#playlist");

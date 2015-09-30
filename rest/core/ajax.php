@@ -30,4 +30,10 @@ if($_POST['action'] == 'add'){
     fclose($fp);
     return true;
 }
+
+if($_POST['action'] == 'clear'){
+    unlink("./../Playlists/".$ip.".txt");
+    return true;
+}
+
 ?>
